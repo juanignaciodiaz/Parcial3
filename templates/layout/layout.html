@@ -5,7 +5,6 @@
 <head>
   <meta charset="utf-8" />
 
-  <title>Supermarket | Inicio</title>
   <link rel="shortcut icon" href="assets/images/Logo24.png" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,6 +19,7 @@
     rel="stylesheet">
 
   <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <title>Supermarket | {% block titulo %}{% endblock titulo %}</title>
 
 </head>
 
@@ -91,8 +91,9 @@
 
 
   <main id="contenido-pagina">
-{% block contenido %}
-{% endblock contenido %}
+  {% block contenido %}
+  
+  {% endblock contenido %}
 
   </main>
   <footer>

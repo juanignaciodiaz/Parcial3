@@ -6,6 +6,7 @@
 
 body {
     background-color: rgb(238, 238, 238);
+    
 }
 
 ul {
@@ -267,6 +268,7 @@ header ul li a:hover {
     margin: auto;
 }
 
+select,
 input {
     width: 90%;
     margin-bottom: 10px;
@@ -718,6 +720,7 @@ footer section article ul li :hover {
 .lista-productos {
     display: flex;
     flex-flow: row wrap;
+    width: 100%;
 }
 
 .pr-btnEditar {
@@ -725,11 +728,22 @@ footer section article ul li :hover {
 }
 
 
+/* EVALUCACION 3 */
+.texto-vacio {
+    opacity: .6;
+    text-align: center;
+}
+
+.clase-prueba {
+    color: red;
+    font-size: 30px;
+}
+
+.color-verde{
+    color: #34974b;
+}
+
 /* CONDICIONES */
-
-
-/* Condiciones PRODUCTOS */
-
 @media screen and (max-width:450px) {
     /* Condiciones PRODUCTOS */
     .contenido_pagina_crud_producto form section {
