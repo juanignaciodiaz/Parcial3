@@ -12,6 +12,8 @@ class Producto(models.Model):
     nombre = models.CharField('Nombre Producto:', max_length=50, blank=False, null=False)
     precio = models.PositiveIntegerField('Precio:')
     stock = models.IntegerField('Stock:')
+    estadooferta = models.BooleanField('estadooferta:', default=0)
+    descuento = models.PositiveSmallIntegerField('descuento:', default=0)
     fecha_creacion = models.DateTimeField('Fecha creacion:', auto_now_add=True)
     fecha_actualizacion = models.DateTimeField('Actualizado:', auto_now=True)
     # imagen = models.ImageField('Imagen:', upload_to='productos')
