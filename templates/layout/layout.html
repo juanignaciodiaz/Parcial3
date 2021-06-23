@@ -48,15 +48,18 @@
     </ul>
 
     <ul class="lista-inicio-s">
+    {% if user.is_authenticated %}
+      <li id="cerrar-cuenta" class="lista-sesion">
+        <a id="cerrar-cuenta" class="lista-cerrar-sesion" href="{% url 'salir' %}"><i class="fas fa-sign-out-alt"></i>Cerrar sesión</a>
+      </li>
+    {% else %}
       <li id="lista-iniciar-S" class="lista-sesion">
-        <a href="#"><i class="fas fa-user"></i> Iniciar Sesión</a>
+        <a href="{% url 'inicio-sesion' %}"><i class="fas fa-user"></i> Iniciar Sesión</a>
       </li>
       <li id="lista-registrar" class="lista-sesion">
-        <a href="#"><i class="fas fa-user-edit"></i>Registrar</a>
+        <a href="{% url 'registrarse' %}"><i class="fas fa-user-edit"></i>Registrar</a>
       </li>
-      <li id="cerrar-cuenta" class="lista-sesion cerrar-cuenta ">
-        <a id="cerrar-cuenta" class="lista-cerrar-sesion"><i class="fas fa-sign-out-alt"></i>Cerrar sesión</a>
-      </li>
+    {% endif %}
 
       <li class="lista-hora">
         <p>Hora Actual</p>

@@ -1,32 +1,20 @@
-<section class="container contenido-registrarse">
-  <form id="formulario-registro" class="col-sm-12 d-flex flex-wrap justify-content-center" >
+{% extends 'layout/layout.html' %}
 
-    <article class="formulario">
-        <label>Nombre de usuario:</label>
-        <input id="regUsuario" name="regUsuario" type="text" autocomplete="off" required>
-
-        <label>Nombre completo:</label>
-        <input id="regNombre" name="regNombre" type="text" maxlength="30" autocomplete="off" required>
-
-        <label>Correo electronico:</label>
-        <input id="regCorreo" name="regCorreo" type="email" autocomplete="off" required>
-
-        <label>Contraseña:</label>
-        <input id="regCon" name="regCon" type="password" autocomplete="off" required>
-
-        <label>Repita su contraseña:</label>
-        <input id="regRepCon" name="regRepCon" type="password" autocomplete="off" required>
-
-        <label>Fecha de nacimiento:</label>
-        <input id="fechaN" name="fechaN" type="date" autocomplete="off" required>
-
-      </article>
-      <article class="regFotos">
-        <img src="assets/images/foto-incognito.jpg" alt="">
-        <input id="regUrlImagen" class="regUrlImagen" name="regUrlImagen" type="text" placeholder="Url foto de perfil">
-      </article>
-      <button name="regGuardar" class="regGuardar" id="regGuardar" type="submit">Registrarse</button>
-
-  </form>
+{% block contenido %}
+<section class="container contenido-registrarse d-flex justify-content-center">
+<article class="cuadro-mitad">
+    <form class="col-sm-12 d-flex flex-wrap formulario-registro" method='POST'>
+        {% csrf_token %}
+        {% for campo in formulario %}
+            <label for="{{campo.id_for_label}}">{{campo.label}}</label>
+            {{campo}}
+            <span class="text-muted">
+            {{campo.errors}}
+            </span>
+        {% endfor %}
+        {% comment %} {{formulario.as_p}} {% endcomment %}
+        <input name="regGuardar" id="regGuardar" class="efecto-botones" type="submit" value="Registrarse">
+    </form>
+</article>
 </section>
-<!-- <script src=".. /js/registrar.js"></script> -->
+{% endblock contenido %}

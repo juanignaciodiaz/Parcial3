@@ -1,19 +1,28 @@
+{% extends 'layout/layout.html' %}
+
+{% block contenido %}
 <section class="container">
-  <div class="col-sm-12 d-flex flex-wrap justify-content-center">
+    <div class="col-sm-12 d-flex flex-wrap justify-content-center">
 
-    <div class="formulario">
-      <form action="#">
-        <img src="assets/images/login.png" class="imagen-login" alt="Login">
+        <div class="formulario">
+            <form class="col-sm-12 d-flex flex-wrap formulario-registro" method="POST" action="#">
+                {% csrf_token %}
+                <img src="assets/images/login.png" class="imagen-login" alt="Login">
 
-        <label>Nombre de usuario:</label>
-        <input type="text" name="logUsuario" id="nombreuser" autocomplete="off">
+                {% for campo in form %}
+                <label for="{{campo.id_for_label}}">{{campo.label}}</label>
+                {{campo}}
+                {% if campo.errors %}
+                <span class="text-muted">
+                {{campo.errors}}
+                </span>
+                {% endif %}
+                {% endfor %}
 
-        <label>Contraseña:</label>
-        <input type="password" name="logContrasena" id="contrasenauser" autocomplete="off">
+                <input type="submit" class="efecto-botones" value="Iniciar Sesion">
+            </form>
+        </div>
 
-        <button type="submit">Iniciar Sesion</button>
-      </form>
     </div>
-
-  </div>
 </section>
+{% endblock contenido %}
