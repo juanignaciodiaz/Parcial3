@@ -1,0 +1,13 @@
+{% extends 'layout/layout.html' %}
+
+{% block titulo %}Prueba{% endblock titulo %}
+
+{% block contenido %}
+<form action="">
+<label class="clase-prueba" for="{{formulario.nombre.label}}">{{formulario.nombre.label}}</label>
+<br>
+<label for="hola">hola</label>
+<br>
+{{formulario.nombre.label}}
+</form>
+{% endblock contenido %}

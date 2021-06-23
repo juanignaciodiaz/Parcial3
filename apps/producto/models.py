@@ -1,3 +1,19 @@
 from django.db import models
 
 # Create your models here.
+class Categoria(models.Model):
+    nombre = models.CharField('Nombre:', max_length=50, blank=False, null=False)
+    descripcion = models.TextField('Descripción', max_length=150, blank=False, null=False)
+
+    def __str__(self):
+        return self.nombre
+
+class Producto(models.Model):
+    nombre = models.CharField('Nombre Producto:', max_length=50, blank=False, null=False)
+    precio = models.PositiveIntegerField('Precio:')
+    stock = models.IntegerField('Stock:')
+    fecha_creacion = models.DateTimeField('Fecha creacion:', auto_now_add=True)
+    fecha_actualizacion = models.DateTimeField('Actualizado:', auto_now=True)
+    # imagen = models.ImageField('Imagen:', upload_to='productos')
+    categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null = True)
+    imagen = models.CharField('Imagen', max_length=150, blank=False, null=False, default='https://media.tenor.com/images/965beb93fefb499a174d45bfcef23c30/tenor.gif')
