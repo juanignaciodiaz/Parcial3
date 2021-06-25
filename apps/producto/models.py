@@ -11,7 +11,7 @@ class Categoria(models.Model):
 class Producto(models.Model):
     nombre = models.CharField('Nombre Producto:', max_length=50, blank=False, null=False)
     precio = models.PositiveIntegerField('Precio:')
-    stock = models.IntegerField('Stock:')
+    stock = models.IntegerField('Stock:', blank=False, null=False)
     estadooferta = models.BooleanField('estadooferta:', default=0)
     descuento = models.PositiveSmallIntegerField('descuento:', default=0)
     fecha_creacion = models.DateTimeField('Fecha creacion:', auto_now_add=True)

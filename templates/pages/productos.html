@@ -1,3 +1,6 @@
+{% extends 'layout/layout.html' %}
+
+{% block contenido %}
 <section class="zona-productos">
   <section class="filtro">
     <article>
@@ -30,26 +33,36 @@
 
     </article>
     <article class="espacio-boton-crear-producto">
-      <p href= id="redirigir-crear-producto" class="crear-producto">Nuevo Producto</p>
+      <a id="btn-crear-producto" class="crear-producto" href="{% url 'crudproducto' %}">Nuevo Producto</a>
     </article>
   </section>
 
   <div class="articulos">
     <h3>Todos</h3>
     <section>
-
-      <!-- <article>
+    {% if productos %}
+      {% for producto in productos %}
+      <article>
         <div class="card mb-1" style="width: 13rem;">
-          <img src="assets/images/Productos/lecheNido2.png" class="card-img-top" alt="...">
+          <img src="{{producto.imagen}}" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title ">Leche nido +5</h5>
-            <p class="card-text"><span class="producto-antes">$9.990</span> <span class="producto-oferta">$7.490</span>
+            <h5 class="card-title ">{{producto.nombre}}</h5>
+            <p class="card-text">
+            {% if producto.estado %}
+            <span class="producto-antes">$9.990</span> <span class="producto-oferta">${{producto.precio}}</span>
+            
+            {% endif %}
+            ${{producto.precio}}
             </p>
             <a href="#" class="btn btn-primary">Comprar</a>
           </div>
         </div>
       </article>
-
+      {% endfor %}
+    {% else %}
+    <h2 class="text-center text-muted no-producto">No hay productos</h2>
+    {% endif %}
+      <!-- 
       <article>
         <div class="card mb-1" style="width: 13rem;">
           <img src="assets/images/Productos/lecheNido3.png" class="card-img-top" alt="...">
@@ -175,3 +188,4 @@
     </section>
   </div>
 </section>
+{% endblock contenido %}

@@ -674,7 +674,7 @@ footer section article ul li :hover {
 
 .contenido_pagina_crud_producto form article .crear-producto-descuento {
     width: 20%;
-    margin-left: 10px;
+    /* margin-left: 10px; */
 }
 
 .contenido_pagina_crud_producto form .contenido-crearPagina {
@@ -733,6 +733,8 @@ footer section article ul li :hover {
 
 
 /* EVALUCACION 3 */
+
+
 /* PAGINA REGISTRARSE */
 input {
     border: 1px solid #ced4da;
@@ -777,7 +779,6 @@ form label {
     opacity: .6;
     text-align: center;
 }
-/* CONDICIONES */
 
 .clase-prueba {
     color: red;
@@ -788,6 +789,23 @@ form label {
     color: #34974b;
 }
 
+/* -- CRUD PRODUCTO */
+
+.crear-producto-stock {
+    display: block;
+    width: 50%;
+}
+
+input[type='checkbox']{
+    width: 25px;
+}
+
+
+/* -- PRODUCTO -- */
+
+.no-producto {
+    width: 100%;
+}
 /* CONDICIONES */
 @media screen and (max-width:450px) {
     /* Condiciones PRODUCTOS */
