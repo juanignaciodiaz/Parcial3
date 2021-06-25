@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.producto'
+    'apps.producto', 
+    'apps.contacto',
 ]
 
 MIDDLEWARE = [
@@ -80,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'evaluacion3',
         'USER': 'root',
-        'PASSWORD': 'admin',
+        'PASSWORD': '1234567890',
         'HOST': 'localhost',
         'PORT': '3306'
     }
@@ -133,3 +134,12 @@ STATIC_ROOT = 'staticfiles'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+#  from decouple import config
+
+EMAIL_HOST = 'smtp.googlemail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'best.market24.7.1@gmail.com'
+EMAIL_HOST_PASSWORD = 'gta san andreas'
+EMAIL_USE_TLS = True
