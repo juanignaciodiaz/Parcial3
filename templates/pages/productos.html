@@ -6,29 +6,14 @@
     <article>
       <h3>Filtro:</h3>
       <ul class="lista-filtro-producto">
-        <li>Todo</li>
-        <li>Lácteos
-          <ul class="lista-desplegable">
-            <li>Leches</li>
-            <li>huevos</li>
-            <li class="productoBloqueado">Postres</li>
-          </ul>
-        </li>
-        <li><a>Despensa</a>
-          <ul class="lista-desplegable">
-            <li>Abarrotes</li>
-            <li class="productoBloqueado">Conservas</li>
-            <li>Salsas y condimentos</li>
-          </ul>
-        </li>
-        <li>Frutas y Verduras
-          <ul class="lista-desplegable">
-            <li>Frutas</li>
-            <li>Verduras</li>
-            <li>Frutos secos</li>
-          </ul>
-        </li>
-        <li>Bebidas</li>
+        <li class="lista-filtro"><a href="{% url 'producto' %}">Todo</a></li>
+        {% if categorias %}
+          {% for categoria in categorias %}
+          <li class="lista-filtro"><a href="{% url 'filtro_categoria' idCategoria=categoria.id %}">{{categoria.nombre}}</a></li>
+          {% endfor %}
+        {% else %}
+          <h4 class="text-muted texto-vacio">No hay categorias</h4>
+        {% endif %}
       </ul>
 
     </article>
@@ -44,7 +29,7 @@
       {% for producto in productos %}
       <article>
         <div class="card mb-1" style="width: 13rem;">
-          <img src="{{producto.imagen}}" class="card-img-top" alt="...">
+          <img src="{{producto.imagen.url}}" class="card-img-top carta-imagen" alt="...">
           <div class="card-body">
             <h5 class="card-title ">{{producto.nombre}}</h5>
             <p class="card-text">

@@ -5,7 +5,7 @@
 {% block contenido %}
 
 <section class="contenido_pagina_crud_producto">
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <article class="contenido-crearPagina">
             <input type="number" name="id_producto" id="id_producto" value='2' disabled>
@@ -15,8 +15,8 @@
             <input type="number" class="crear-producto-descuento" name="descuento_producto" id="descuento_producto" placeholder="Descuento" disabled>
             {{formulario.stock}}
 
+            {{formulario.imagen}}
             {{formulario.categoria}}
-
             
         </article>
         <section>
@@ -24,12 +24,11 @@
                 <img src="https://media.tenor.com/images/965beb93fefb499a174d45bfcef23c30/tenor.gif" alt="">
             </div>
             {% comment %} <input type="text" name="imagen" placeholder="Ingrese la url de la imagen"> {% endcomment %}
-            {% comment %} {{formulario.imagen}} {% endcomment %}
         </section>
         <article class="contenido-crear-producto-botones">
             
             <button name="boton_guardar" type="submit" class="btn-agregar">Agrergar Producto</button>
-            <input type="submit" value="Guardar">
+            {% comment %} <input type="submit" value="Guardar"> {% endcomment %}
             <button type="button" name="boton_editar" id="agregar_producto" class="btn-editar btn-editar">Editar</button>
         </article>
     </form>
@@ -41,11 +40,11 @@
         {% for producto in productos %}
         <article>
             <section class="card mb-1" style="width: 13rem">
-                {% comment %} <img src="{{producto.imagen}}" class="card-img-top"> {% endcomment %}
+                <img src="{{producto.imagen.url}}" class="card-img-top carta-imagen">
                 <article class="card-body">
                     <h5 class="card-title">{{producto.nombre}}</h5>
                     <p class="card-text"> <span class="color-verde">$</span>{{producto.precio}}</p>
-                    <button class="btn-success">Editar</button>
+                    <button class="btn-warning">Editar</button>
                     <button class="btn-danger">Eliminar</button>
                 </article>
             </section>

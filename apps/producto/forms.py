@@ -17,6 +17,6 @@ class FormularioProducto(forms.ModelForm):
             'precio': forms.NumberInput(attrs={'class': 'crear-producto-precio', 'name':'precio_producto', 'id':'precio-producto', 'placeholder': 'Precio del producto'}),
             'stock': forms.NumberInput(attrs={'class': 'crear-producto-stock', 'placeholder': 'Stock del producto'}),
             'categoria': forms.Select(attrs={'class': 'lista-categoria'}),
-            'imagen': forms.TextInput(attrs={'name': 'imagen', 'placeholder': 'Ingrese la url de la imagen'}),
+            # 'imagen': forms.FileInput(attrs={'id': 'campo-imagen'}),
         }
-        fields = ('nombre', 'precio', 'stock', 'categoria', 'estadooferta', )
+        fields = ('nombre', 'precio', 'stock', 'categoria', 'estadooferta', 'imagen')
