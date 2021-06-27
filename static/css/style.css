@@ -832,6 +832,15 @@ input[type='checkbox']{
     margin-bottom: 3px;
     border-radius: 5px;
     color: #005213;
+    border: 1px solid #000;
+}
+
+.filtro-crear:hover {
+    text-decoration: none;
+    color: rgb(16, 116, 209);
+    border: 1px solid rgb(16, 116, 209);
+    /* box-shadow: 0px 0px 2px 1px black; */
+    transition: all 200ms;
 }
 
 /* CATEGORIA */
