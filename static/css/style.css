@@ -157,7 +157,10 @@ header ul li a:hover {
 } */
 
 .espacio-boton-crear-producto {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
 }
 
 .espacio-boton-crear-producto p {
@@ -821,6 +824,14 @@ input[type='checkbox']{
 .lista-filtro {
     /* display: inline; */
     /* width: 100%; */
+}
+
+.filtro-crear {
+    padding: 5px 10px;
+    background: rgb(253 185 58);
+    margin-bottom: 3px;
+    border-radius: 5px;
+    color: #005213;
 }
 
 /* CATEGORIA */
