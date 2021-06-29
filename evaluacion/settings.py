@@ -38,8 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.producto', 
     'apps.contacto',
+    'apps.producto',
+    'apps.cuentas',
+    'apps.principal'
 ]
 
 MIDDLEWARE = [
@@ -110,9 +112,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-cl'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Santiago'
 
 USE_I18N = True
 
@@ -143,3 +145,7 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'best.market24.7.1@gmail.com'
 EMAIL_HOST_PASSWORD = 'gta san andreas'
 EMAIL_USE_TLS = True
+# Configuración de login
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+LOGIN_URL = '/inicio-sesion/'

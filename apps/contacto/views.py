@@ -1,5 +1,5 @@
-from django.shortcuts import render
 from django.conf import settings
+from django.shortcuts import render
 from django.template.loader import get_template
 from django.core.mail import EmailMultiAlternatives
  
@@ -15,14 +15,15 @@ def send_email(correoelectronico):
     content = template.render(context)
 
     email = EmailMultiAlternatives(
-        'Correo de solicitud de trabajo' ,
-        'Solicitud de trabajo por parte de una persona que quiere dar aporte a la tienda',
+        'Correo de solicitud de trabajo',
+        'Formulario de contacto',
         settings.EMAIL_HOST_USER,
         [correoelectronico]
     )
 
     email.attach_alternative(content, 'text/html')
     email.send()
+    
     
 def contacto(request):
     if request.method == 'POST':

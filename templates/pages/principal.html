@@ -1,4 +1,5 @@
-
+{% extends 'layout/layout.html' %}
+{% block contenido %}
     <div class="container mt-3">
         <div class="row">
           <div class="col-sm-12">
@@ -50,38 +51,26 @@
   
       <h3 class="inicio-h3"><i class="fas fa-percent"></i> Ofertas</h3>
       <section class="cartas d-flex justify-content-center">
+        
         <article>
-          <div class="card float-left ml-4" style="width: 14rem;">
-            <img
-              src="https://7483c243aa9da28f329c-903e05bc00667eb97d832a11f670edad.ssl.cf1.rackcdn.com/20103229-UirhRPCC.png"
-              class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-texttitle">Leche Nido Etapas 1</p>
-              <p class="precioo1c">antes: $9.990</p>
-              <p class="ofertareal">Ahora: $7.490</p>
-            </div>
-          </div>
-  
-          <div class="card float-left left ml-4" style="width: 14rem">
-            <img src="https://cdnx.jumpseller.com/mydot/image/12404800/resize/570/570?1607021119" class="card-img-top"
-              alt="...">
-            <div class="card-body">
-              <p class="card-texttitle">Leche Nido Etapas 3</p>
-              <p class="precioo1c">antes: $9.990</p>
-              <p class="ofertareal">Ahora: $7.490</p>
-            </div>
-          </div>
-  
+        {% if productos%}
+        {% for producto in productos %}
+        {% if producto.estaooferta == 1%}
           <div class="card float-left left ml-4" style="width: 14rem">
             <img
-              src="https://7483c243aa9da28f329c-903e05bc00667eb97d832a11f670edad.ssl.cf1.rackcdn.com/20103239-0wVakLKE.png"
+              src= {{producto.imagen}}
               class="card-img-top" alt="...">
             <div class="card-body">
-              <p class="card-texttitle">Leche Nido Etapas 5</p>
-              <p class="precioo1c">antes: $9.990</p>
-              <p class="ofertareal">Ahora: $7.490</p>
+              <p class="card-texttitle">{{producto.nombre}}</p>
+              <p class="precioo1c">antes: {{producto.precio}}</p>
+              <p class="ofertareal">Ahora: {{producto.descuento}}</p>
             </div>
-          </div>
+          </div> 
+        {% endif %}
+        {% endfor %}
+          {% else %}
+          <h3>No Existen Ofertas</h3>       
+        {% endif %}
         </article>
       </section>
   
@@ -146,3 +135,5 @@
           </div>
         </article>
       </section>
+
+{% endblock contenido %}
