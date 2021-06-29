@@ -74,65 +74,27 @@
         </article>
       </section>
   
-      <h3 class="inicio-h3"><i class="far fa-plus-square"></i> Vendidos</h3>
-      <section class="cartas cartas2">
-        <article>
-          <div class="card float-left ml-4 mt-5" style="width: 14rem;">
-            <img src="assets/images/Productos/aceiteMaravilla.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-texttitle">Aceite Maravilla</p>
-              <p class="precioo1c">Precio: $1.890</p>
-            </div>
-          </div>
   
-          <div class="card float-left left ml-4 mt-5" style="width: 14rem">
-            <img src="assets/images/Productos/sprunk.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-texttitle">Bebida Sprunk</p>
-              <p class="precioo1c">Precio: $600</p>
-            </div>
-          </div>
-  
-          <div class="card float-left left ml-4 mt-5" style="width: 14rem">
-            <img src="assets/images/Productos/salsaTomate.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-texttitle">Salsa Tomate</p>
-              <p class="precioo1c">Precio: $530</p>
-            </div>
-          </div>
-        </article>
-      </section>
-  
-      <h3 class="inicio-h3"><i class="far fa-plus-square"></i> Vendidos lacteos</h3>
+      <h3 class="inicio-h3"><i class="far fa-plus-square"></i> lacteos</h3>
       <section class="cartas cartas3">
         <article>
-          <div class="card float-left ml-4 mt-5" style="width: 14rem;">
-            <img src="assets/images/Productos/Leche-blanca-entera-soprole.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-texttitle">Leche Entera Soprole</p>
-              <p class="precioo1c">Precio: $600</p>
-            </div>
-          </div>
-  
-          <div class="card float-left left ml-4 mt-5" style="width: 14rem">
+        {% if productos%}
+        {% for producto in productos %}
+        {% if producto.categoria == Lacteos}
+          <div class="card float-left left ml-4" style="width: 14rem">
             <img
-              src="https://7483c243aa9da28f329c-903e05bc00667eb97d832a11f670edad.ssl.cf1.rackcdn.com/20103239-0wVakLKE.png"
+              src= {{producto.imagen}}
               class="card-img-top" alt="...">
             <div class="card-body">
-              <p class="card-texttitle">Leche Nido Etapa 5</p>
-              <p class="precioo1c">Precio: $7.490</p>
+              <p class="card-texttitle">{{producto.nombre}}</p>
+              <p class="precioo1c">antes: {{producto.precio}}</p>
             </div>
-          </div>
-  
-          <div class="card float-left left ml-4 mt-5" style="width: 14rem">
-            <img
-              src="https://7483c243aa9da28f329c-903e05bc00667eb97d832a11f670edad.ssl.cf1.rackcdn.com/20103229-UirhRPCC.png"
-              class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-texttitle">Leche Nido Etapa 1</p>
-              <p class="precioo1c">Precio: $7.490</p>
-            </div>
-          </div>
+          </div> 
+        {% endif %}
+        {% endfor %}
+          {% else %}
+          <h3>Ups! No hemos encontrado lacteos</h3>       
+        {% endif %}
         </article>
       </section>
 
