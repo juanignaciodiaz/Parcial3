@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.producto',
     'apps.cuentas',
-    'apps.principal'
+    'apps.principal',
     'apps.comentarios'
 ]
 
@@ -83,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'evaluacion3',
         'USER': 'root',
-        'PASSWORD': 'admin',
+        'PASSWORD': '12341234',
         'HOST': 'localhost',
         'PORT': '3306'
     }
