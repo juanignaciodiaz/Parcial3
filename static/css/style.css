@@ -157,7 +157,10 @@ header ul li a:hover {
 } */
 
 .espacio-boton-crear-producto {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
 }
 
 .espacio-boton-crear-producto p {
@@ -194,14 +197,14 @@ header ul li a:hover {
     justify-content: flex-start;
 }
 
-.lista-filtro-producto li {
+/* .lista-filtro-producto li {
     color: #007bff;
     cursor: pointer;
-}
+} */
 
-.lista-filtro-producto li:hover {
+/* .lista-filtro-producto li:hover {
     text-decoration: underline;
-}
+} */
 
 
 /* .cartas{
@@ -230,9 +233,10 @@ header ul li a:hover {
 
 .articulos section article .card img {
     width: 130px;
-    height: 150px;
+    height: 163px;
     display: block;
-    margin: auto;
+    margin: 10px auto;
+    margin-bottom: 0px;
 }
 
 .card-body p .producto-antes {
@@ -367,6 +371,7 @@ button,
 
 /* PAGINA CONTACTO */
 
+.pagina-blanco,
 .contenidoContacto {
     /* padding: 30px; */
     border: 1px solid rgb(199, 199, 199);
@@ -674,7 +679,7 @@ footer section article ul li :hover {
 
 .contenido_pagina_crud_producto form article .crear-producto-descuento {
     width: 20%;
-    margin-left: 10px;
+    /* margin-left: 10px; */
 }
 
 .contenido_pagina_crud_producto form .contenido-crearPagina {
@@ -733,7 +738,10 @@ footer section article ul li :hover {
 
 
 /* EVALUCACION 3 */
+
+
 /* PAGINA REGISTRARSE */
+textarea,
 input {
     border: 1px solid #ced4da;
     border-radius: 5px;
@@ -741,9 +749,11 @@ input {
     color: 3c3636;
     font-family: sans-serif;
 }
+
+textarea:focus,
 input:focus{
     outline: 0px;
-    box-shadow: 2px 2px 2px 1px rgba(94, 161, 223, 0.575);
+    box-shadow: 0px 0px 2px 1px rgba(94, 161, 223, 0.575);
     transition: all 200ms;
 }
 
@@ -777,7 +787,6 @@ form label {
     opacity: .6;
     text-align: center;
 }
-/* CONDICIONES */
 
 .clase-prueba {
     color: red;
@@ -786,6 +795,117 @@ form label {
 
 .color-verde{
     color: #34974b;
+}
+
+/* -- CRUD PRODUCTO */
+
+.crear-producto-stock {
+    display: block;
+    width: 50%;
+}
+
+input[type='checkbox']{
+    width: 25px;
+}
+
+.carta-imagen {
+    width: 130px;
+    height: 163px;
+    display: block;
+    margin: 10px auto;
+    margin-bottom: 0px;
+}
+
+/* -- PRODUCTO -- */
+
+.no-producto {
+    width: 100%;
+}
+
+.lista-filtro {
+    /* display: inline; */
+    /* width: 100%; */
+}
+
+.filtro-crear {
+    padding: 5px 10px;
+    background: rgb(253 185 58);
+    margin-bottom: 3px;
+    border-radius: 5px;
+    color: #005213;
+    border: 1px solid #000;
+}
+
+.filtro-crear:hover {
+    text-decoration: none;
+    color: rgb(16, 116, 209);
+    border: 1px solid rgb(16, 116, 209);
+    /* box-shadow: 0px 0px 2px 1px black; */
+    transition: all 200ms;
+}
+
+.contenido-icono-carrito {
+    width: 45px;
+    height: 45px;
+    background-color: #bc0000;
+    border-radius: 50%;
+}
+
+.icono-carrito .icono-carrito {
+    display: block;
+    margin: auto;
+}
+/* CATEGORIA */
+
+.formulario-categoria{
+    width: 50%;
+}
+
+.formulario-categoria textarea{
+    width: 90%;
+}
+
+/* PAGINA CARRITO */
+
+.imagen-producto {
+    width: 90px;
+    height: 123px;
+}
+
+.pagina-carrito .tabla-imagen {
+    width: 100px;
+}
+
+.pagina-carrito .thead-carrito {
+    background-color: #F57C00;
+}
+
+.carrito-total {
+    /* margin: 0 auto; */
+    text-align: center;
+}
+
+.carrito-contenido-total {
+    padding: 30px 0;
+    width: 50%;
+    margin: 10px auto;
+    border: 1px solid rgba(34, 34, 34, 0.753);
+    background-color: #28a745;
+    transition: all 400ms;
+}
+.carrito-contenido-total:hover {
+    /* box-shadow: 3px 4px 9px -5px #F57C00; */
+    box-shadow: 3px 4px 9px -4px;
+    transition: all 200ms;
+}
+.btn-comprar {
+    border: 1px solid rgba(34, 34, 34, 0.753);
+    font-weight: 500;
+    color: #212529;
+}
+
+.pagina-carrito table input{
+    width: 80px;
 }
 
 /* CONDICIONES */

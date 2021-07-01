@@ -6,9 +6,13 @@ from django.db.models.signals import post_save
 # Create your models here.
 
 class Perfil(models.Model):
+    id = models.IntegerField(primary_key=True)
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
     # fecha_nacimiento = models.DateTimeField('Fecha de nacimiento:')
     # imagen = models.ImageField
+
+    def idPerfil(self):
+        return self.id
 
     def __str__(self):
         return self.usuario.username

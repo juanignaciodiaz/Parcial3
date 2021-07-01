@@ -1,0 +1,12 @@
+{% extends 'layout/layout.html' %}
+
+{% block contenido %}
+<section class="contenido_pagina_crud_producto formulario-categoria">
+    <form class="formulario" action="" method="POST">
+    {% csrf_token %}
+        {{formulario.as_table}}
+
+        <input class="efecto-botones" type="submit" value="Guardar">
+    </form> 
+</section>
+{% endblock contenido %}

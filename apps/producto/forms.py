@@ -15,7 +15,8 @@ class FormularioProducto(forms.ModelForm):
         widgets = {
             'nombre': forms.TextInput(attrs={'name':'titulo_producto', 'id':'titulo_producto', 'placeholder': 'Titulo del producto'}),
             'precio': forms.NumberInput(attrs={'class': 'crear-producto-precio', 'name':'precio_producto', 'id':'precio-producto', 'placeholder': 'Precio del producto'}),
+            'stock': forms.NumberInput(attrs={'class': 'crear-producto-stock', 'placeholder': 'Stock del producto'}),
             'categoria': forms.Select(attrs={'class': 'lista-categoria'}),
-            'imagen': forms.TextInput(attrs={'name': 'imagen', 'placeholder': 'Ingrese la url de la imagen'}),
+            # 'imagen': forms.FileInput(attrs={'id': 'campo-imagen'}),
         }
-        fields = '__all__'
+        fields = ('nombre', 'precio', 'stock', 'categoria', 'estadooferta', 'imagen')
