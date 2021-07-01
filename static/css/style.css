@@ -371,6 +371,7 @@ button,
 
 /* PAGINA CONTACTO */
 
+.pagina-blanco,
 .contenidoContacto {
     /* padding: 30px; */
     border: 1px solid rgb(199, 199, 199);
@@ -843,6 +844,17 @@ input[type='checkbox']{
     transition: all 200ms;
 }
 
+.contenido-icono-carrito {
+    width: 45px;
+    height: 45px;
+    background-color: #bc0000;
+    border-radius: 50%;
+}
+
+.icono-carrito .icono-carrito {
+    display: block;
+    margin: auto;
+}
 /* CATEGORIA */
 
 .formulario-categoria{
@@ -851,6 +863,49 @@ input[type='checkbox']{
 
 .formulario-categoria textarea{
     width: 90%;
+}
+
+/* PAGINA CARRITO */
+
+.imagen-producto {
+    width: 90px;
+    height: 123px;
+}
+
+.pagina-carrito .tabla-imagen {
+    width: 100px;
+}
+
+.pagina-carrito .thead-carrito {
+    background-color: #F57C00;
+}
+
+.carrito-total {
+    /* margin: 0 auto; */
+    text-align: center;
+}
+
+.carrito-contenido-total {
+    padding: 30px 0;
+    width: 50%;
+    margin: 10px auto;
+    border: 1px solid rgba(34, 34, 34, 0.753);
+    background-color: #28a745;
+    transition: all 400ms;
+}
+.carrito-contenido-total:hover {
+    /* box-shadow: 3px 4px 9px -5px #F57C00; */
+    box-shadow: 3px 4px 9px -4px;
+    transition: all 200ms;
+}
+.btn-comprar {
+    border: 1px solid rgba(34, 34, 34, 0.753);
+    font-weight: 500;
+    color: #212529;
+}
+
+.pagina-carrito table input{
+    width: 80px;
 }
 
 /* CONDICIONES */

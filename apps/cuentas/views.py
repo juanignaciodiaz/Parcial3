@@ -36,4 +36,4 @@ def inicio_sesion(request):
 def salir(request):
     if request.user.is_authenticated:
         logout(request)
-    return redirect('prueba')
+    return redirect('producto')

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'apps.cuentas',
     'apps.principal',
     'apps.carrito',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

@@ -2,6 +2,9 @@
 
 {% block contenido %}
 <section class="zona-productos">
+  <article class="contenido-icono-carrito">
+  <a class="icono-carrito" href="#"><i class="fas fa-shopping-cart"></i></a>
+  </article>
   <section class="filtro">
     <article>
       <h3>Filtro:</h3>
@@ -17,14 +20,16 @@
       </ul>
 
     </article>
+    {% if user.is_authenticated %}
     <article class="espacio-boton-crear-producto">
       <a class="filtro-crear" href="{% url 'categoria' %}">Nurva Categoria</a>
       <a id="btn-crear-producto" class="crear-producto filtro-crear" href="{% url 'crudproducto' %}">Nuevo Producto</a>
     </article>
+    {% endif %}
   </section>
 
-  <div class="articulos">
-    <h3>Todos</h3>
+  <article class="articulos">
+    <h3>Todo</h3>
     <section>
     {% if productos %}
       {% for producto in productos %}
@@ -40,7 +45,7 @@
             {% endif %}
             ${{producto.precio}}
             </p>
-            <a href="#" class="btn btn-primary">Comprar</a>
+            <a href="{% url 'agregarCarrito' producto.id %}" class="btn btn-primary">Comprar</a>
           </div>
         </div>
       </article>
@@ -172,6 +177,6 @@
         </div>
       </article> -->
     </section>
-  </div>
+  </article>
 </section>
 {% endblock contenido %}
