@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'apps.principal',
     'apps.comentarios',
     'apps.carrito',
-    'rest_framework',
 ]
 
 MIDDLEWARE = [
