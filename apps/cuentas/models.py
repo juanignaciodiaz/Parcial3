@@ -10,8 +10,7 @@ class Perfil(models.Model):
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
     # fecha_nacimiento = models.DateTimeField('Fecha de nacimiento:')
     numero = models.IntegerField('precio', blank=False, null=False, default=0)
-    imagen = models.ImageField('Imagen perfil:', upload_to='perfil', blank=False, null=False, default="")
-
+    
     def idPerfil(self):
         return self.id
 
