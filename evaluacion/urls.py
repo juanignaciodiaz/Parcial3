@@ -23,6 +23,7 @@ urlpatterns = [
     path('', include('apps.producto.urls')),
     path('', include('apps.cuentas.urls')),
     path('', include('apps.principal.urls')),
+    path('', include('apps.carrito.urls')),
 ] + static(
     settings.MEDIA_URL,
     document_root = settings.MEDIA_ROOT

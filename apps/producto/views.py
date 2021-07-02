@@ -1,3 +1,5 @@
+from apps.cuentas.models import Perfil
+from apps.carrito.models import Carrito
 from apps.producto.models import Categoria, Producto
 from apps.producto.forms import FormularioCategoria, FormularioProducto
 from django.shortcuts import redirect, render
@@ -6,10 +8,11 @@ from django.shortcuts import redirect, render
 def productos(request):
     productos_encontrados = Producto.objects.all()
     categoria_encontradas = Categoria.objects.all()
-    prueba = 'hola'
+    # usuariom= Perfil.objects.get(usuario = request.user.id),
     context = {
         'productos': productos_encontrados,
-        'categorias': categoria_encontradas
+        'categorias': categoria_encontradas,
+        # 'usuariom':usuariom
     }
     return render(request, 'pages/productos.html', context)
 
@@ -22,6 +25,12 @@ def filtroCategoria(request, idCategoria):
     }
     return render(request, 'pages/productos.html', context)
 
+def agregarCarrito(request, idProducto):
+    productoCarrito = Carrito.objects.create(
+        usuario= Perfil.objects.get(usuario = request.user.id),
+        producto=Producto.objects.get(id = idProducto))
+    # productoCarrito.save()
+    return redirect('producto')
 
 def formularioPrueba(request):
     formulario = FormularioProducto
