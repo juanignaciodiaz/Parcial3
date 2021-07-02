@@ -7,7 +7,7 @@ from django.forms import widgets
 class FormularioRegistro(UserCreationForm):
     fecha_nacimiento = forms.DateField( widget= forms.TextInput( attrs={ 'type': 'date'}))
     imagen = forms.FileField()
-    admin = forms.BooleanField()
+    # admin = forms.BooleanField()
 
     def __init__(self, *args, **kwargs):
         super(FormularioRegistro, self).__init__(*args, **kwargs)
@@ -19,7 +19,7 @@ class FormularioRegistro(UserCreationForm):
         # widgets = {
         #     'admin': forms.CheckboxInput(attrs={'class':'form-control'})
         # }
-        fields = ('username', 'first_name', 'last_name', 'email', 'admin','imagen', 'password1', 'password2')
+        fields = ('username', 'first_name', 'last_name', 'email','imagen', 'password1', 'password2')
 
 class IniciarSesion(AuthenticationForm):
     def __init__(self, *args, **kwargs):

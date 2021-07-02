@@ -10,8 +10,8 @@ class Perfil(models.Model):
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
     # fecha_nacimiento = models.DateTimeField('Fecha de nacimiento:')
     imagen = models.ImageField('Imagen perfil:', upload_to='perfil', blank=False, null=False, default="")
-    admin = models.BooleanField('Admin', default=0)
-    
+    # admin = models.BooleanField('Admin', default=0)
+
 
     def __str__(self):
         return self.usuario.username
