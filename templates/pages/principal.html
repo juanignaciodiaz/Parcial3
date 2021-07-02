@@ -58,19 +58,19 @@
         {% if productos%}
         {% for producto in productos %}
         {% if producto.estadooferta == 1%}
-          <div class="card float-left left ml-4" style="width: 14rem">
+          <div class="card float-left left ml-4 m-2 p-1" style="width: 14rem">
             <img
               src= {{producto.imagen.url}}
-              class="card-img-top" alt="...">
+              class="card-img-top carta-imagen" alt="...">
             <div class="card-body">
               <p class="card-texttitle">{{producto.nombre}}</p>
-              <p class="precioo1c">antes: {{producto.precio}}</p>
-              <p class="ofertareal">Ahora: {{producto.descuento}}</p>
+              <p class="precioo1c">antes: ${{producto.precio}}</p>
+              <p class="ofertareal">Ahora: ${{producto.precio}}</p>
             </div>
           </div> 
         {% endif %}
         {% endfor %}
-          {% else %}
+        {% else %}
           <h4>Ups! No tenemos ofertas en este Momento</h4>       
         {% endif %}
         </article>
