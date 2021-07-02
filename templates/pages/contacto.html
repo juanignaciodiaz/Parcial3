@@ -1,10 +1,12 @@
+{% extends 'layout/layout.html' %}
+{% block contenido %}
 <section class="contenidoContacto">
-    <h3>¿Quienes somos?</h3>
+    <h3>¿Quienes somos? </h3>
     <p>Somos una empresa dedica a la venta de nuestros productos importados a nuestro clientes, con una categoría
+
         extendida a sus más sinceros gustos así como los precios, para que las familas tengan con nosotros compras
         sencillas. Trabajamos pensando en darle la mejor experiencia y calidad de nuestros productos.</p>
-
-    <h2>Empresas asociadas</h2>
+    <h2> Empresas asociadas </h2>
     <section class="contac">
         <article>
             <img src="https://blackcorner.cl/img/m/58.jpg" alt="">
@@ -15,7 +17,6 @@
                 con sus diferentes variedades.
             </p>
         </article>
-
         <article>
             <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Carozzi.png" alt="">
             <p>
@@ -34,60 +35,44 @@
             </p>
         </article>
 
-    </section>
-
-
-    <h2>¿Quieres trabajar con nosotros?</h2>
-    <p>Llena el siguiente formulario y este a la espera para su confirmacion para trabajar en SuperMarket24/7
+    </section> 
+    <h2> ¿Quieres trabajar con nosotros? </h2>
+    <p> Llena el siguiente formulario y este a la espera para su confirmacion para trabajar en SuperMarket24/7
     <p>
+
+    {% if user.is_authenticated %}
+
+    
     <form>
         <!-- RUN -->
         <section class="container-fluid"></section>
         <article class="col-12">
             <div class="form-group">
                 <label for="rut">Ingrese su Rut</label>
-                <input type="text" id="rut" class="form-control" name="rut" />
-            </div>
-        </article>
-
-        <!-- NOMBRE -->
-        <article class="col-12">
-            <div class="form-group">
-                <label for="nombre">Ingrese su nombre</label>
-                <input type="text" id="nombre" class="form-control" name="nombre" required minlength="1"
-                    maxlength="15" />
-            </div>
-        </article>
-
-        <!-- APELLIDOS -->
-        <article class="col-12">
-            <div class="form-group">
-                <label for="apellido">Ingrese su apellido</label>
-                <input type="text" id="apellido" class="form-control" name="apellido" required minlength="1"
-                    maxlength="20" />
+                <input type="text" id="rut" class="form-control" {{rut}} name="rut" />
             </div>
         </article>
         <!-- Telefono -->
         <article class="col-12">
             <div class="form-group">
                 <label for="telefono">Ingrese su telefono</label>
-                <input type="text" id="telefono" class="form-control" name="telefono" required minlength="1"
-                    maxlength="12" />
+                <input type="text" id="telefono" class="form-control" {{telefono}} name="telefono" required minlength="1"
+                maxlength="12" />
             </div>
         </article>
         <!-- Correo electronico -->
         <article class="col-12">
             <div class="form-group">
                 <label for="correoelectronico">Ingrese su correo electronico</label>
-                <input type="text" id="correoelectronico" class="form-control" name="correoelectronico" />
+                <input type="text" id="correoelectronico" class="form-control" {{correoelectronico}} name="correoelectronico"  value="{{user.email}}" disabled />
             </div>
         </article>
-
+        
         <!-- Cargo -->
         <article class="col-12">
             <div class="form-group">
                 <label for="cargo">Ingrese cargo</label>
-                <input type="text" id="cargo" class="form-control" name="cargo" />
+                <input type="text" id="cargo" class="form-control" {{cargo}} name="cargo" />
             </div>
         </article>
         <!-- Boton de enviar -->
@@ -97,5 +82,6 @@
             </div>
         </article>
     </form>
-    </div>
-    <!-- <script src="./contacto.html"></script> -->
+    {% endif %}
+</div>
+{% endblock contenido %}
