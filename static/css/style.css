@@ -118,6 +118,7 @@ header ul li a:hover {
 /* --------------------- */
 
 
+
 /* Producto */
 
 .zona-productos {
@@ -931,6 +932,18 @@ input[type='checkbox']{
 
 .pagina-editar-producto .crear-producto-stock {
     width: 30%;
+}
+
+/* Mensajes */
+
+.alert{
+    border: 1px solid #35419673;
+    position: fixed;
+    bottom: 20px;
+    bottom: 20px;
+    right: 35%;
+    left: 35%;
+    z-index: 100;
 }
 
 /* CONDICIONES */

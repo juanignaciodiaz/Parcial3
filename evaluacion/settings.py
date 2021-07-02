@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'evaluacion.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'evaluacion3',
+        'NAME': 'evaluacion3_1',
         'USER': 'root',
         'PASSWORD': 'admin',
         'HOST': 'localhost',

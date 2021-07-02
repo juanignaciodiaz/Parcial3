@@ -4,6 +4,7 @@ from apps.producto.models import Categoria, Producto
 from apps.producto.forms import FormularioCategoria, FormularioProducto
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 # Create your views here.
 def productos(request):
@@ -33,6 +34,7 @@ def agregarCarrito(request, idProducto):
 
     
     # productoCarrito.save()
+    messages.success(request, 'Producto agregado correctamente al carrito')
     return redirect('producto')
 
 def formularioPrueba(request):
@@ -52,6 +54,7 @@ def agregarProducto(request):
         formulario = FormularioProducto(request.POST, request.FILES)
         if formulario.is_valid():
             formulario.save()
+            messages.success(request, 'Producto agregado correctamente')
             return redirect('crudproducto')
     context = {
         'formulario': formulario ,
@@ -71,6 +74,7 @@ def crudCategoria(request):
     context = {
         'formulario': formulario
     }
+    messages.success(request, 'Categoría agregada correctamente')
     return render(request, 'pages/crudCategoria.html', context)
 
 @login_required
@@ -82,6 +86,7 @@ def eliminarProducto(request, idProducto):
         producto_encontrado.delete()
     except:
         pass
+    messages.success(request, 'Producto eliminado correctamente')
     return redirect('crudproducto')
 
 @login_required
@@ -95,6 +100,7 @@ def buscarProductoId(request, idProducto):
         'formulario': formularioP,
         'producto': producto_encontrado
     }
+    messages.success(request, 'Producto encontrado correctamente')
     return render(request, 'pages/editarProducto.html', contexto)
 
 @login_required
@@ -109,4 +115,5 @@ def editarProducto(request, idProducto):
     
     if formulario_producto.is_valid():
         formulario_producto.save()
+        messages.success(request, 'Producto editado correctamente')
         return redirect('crudproducto')

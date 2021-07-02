@@ -16,6 +16,7 @@ def comentario(request):
         # if comentario.is_valid():
             # formulario.save()
         comentario.save()
+        messages.success(request, 'Comentario publicado con éxito')
         return redirect('comentarios')
 
     context = {

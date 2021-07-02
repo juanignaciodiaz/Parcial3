@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.db.models.fields import IntegerField
+from django.db.models.fields import BooleanField, IntegerField
 from django.dispatch import receiver
 from django.db.models.signals import post_save
 
@@ -9,7 +9,9 @@ from django.db.models.signals import post_save
 class Perfil(models.Model):
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
     # fecha_nacimiento = models.DateTimeField('Fecha de nacimiento:')
-    # imagen = models.ImageField('Imagen perfil:', upload_to='perfil', blank=False, null=False, default="")
+    imagen = models.ImageField('Imagen perfil:', upload_to='perfil', blank=False, null=False, default="")
+    admin = models.BooleanField('Admin', default=0)
+    
 
     def __str__(self):
         return self.usuario.username

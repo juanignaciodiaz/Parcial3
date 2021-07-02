@@ -3,7 +3,7 @@
 {% block contenido %}
 <section class="container contenido-registrarse d-flex justify-content-center">
 <article class="cuadro-mitad">
-    <form class="col-sm-12 d-flex flex-wrap formulario-registro" enctype="multipart/form-data method='POST'>
+    <form class="col-sm-12 d-flex flex-wrap formulario-registro" enctype="multipart/form-data" method='POST'>
         {% csrf_token %}
         {% for campo in formulario %}
             <label for="{{campo.id_for_label}}">{{campo.label}}</label>

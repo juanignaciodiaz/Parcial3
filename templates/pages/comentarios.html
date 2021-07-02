@@ -12,7 +12,7 @@
         <form class="public-comment" id="public-comment" method="POST">
         {% csrf_token %}
           <div class="comment-avatar">
-            <img src="{{user.imagen.url}}">
+            <img src="{{user.perfil.imagen.url}}">
           </div>
           <div class="public-box">
             {%for campo in formulario%}
@@ -37,7 +37,7 @@
 
         <div class="comment-main-level">
           <div class="comment-avatar">
-            <img src="../../static/img/cj_avatar.jpg">
+            <img src="{{comentario.perfil.imagen.url}}">
           </div>
           <div class="comment-box">
             <div class="comment-head">

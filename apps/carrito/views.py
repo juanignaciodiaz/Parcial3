@@ -5,6 +5,7 @@ from apps.carrito.models import Carrito
 from django.shortcuts import redirect, render
 from django.db.models import Sum
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 # Create your views here.
 
@@ -31,4 +32,5 @@ def eliminarCarrito(request, idCarrito):
         producto.delete()
     except:
         pass
+    messages.success(request, 'Producto correctamente eliminado del carrito')
     return redirect('carrito')
