@@ -3,6 +3,7 @@ from apps.carrito.models import Carrito
 from apps.producto.models import Categoria, Producto
 from apps.producto.forms import FormularioCategoria, FormularioProducto
 from django.shortcuts import redirect, render
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def productos(request):
@@ -29,6 +30,8 @@ def agregarCarrito(request, idProducto):
     productoCarrito = Carrito.objects.create(
         usuario= Perfil.objects.get(usuario = request.user.id),
         producto=Producto.objects.get(id = idProducto))
+
+    
     # productoCarrito.save()
     return redirect('producto')
 
@@ -39,6 +42,7 @@ def formularioPrueba(request):
     }
     return render(request, 'pages/prueba.html', context)
 
+@login_required
 def agregarProducto(request):
     productos_encontrados = Producto.objects.all()
     formulario = FormularioProducto()
@@ -55,6 +59,7 @@ def agregarProducto(request):
     }
     return render(request, 'pages/crear_producto.html', context)
 
+@login_required
 def crudCategoria(request):
     formulario = FormularioCategoria()
     if request.method == "POST":
@@ -68,6 +73,7 @@ def crudCategoria(request):
     }
     return render(request, 'pages/crudCategoria.html', context)
 
+@login_required
 def eliminarProducto(request, idProducto):
     producto_encontrado = None
 
@@ -78,6 +84,7 @@ def eliminarProducto(request, idProducto):
         pass
     return redirect('crudproducto')
 
+@login_required
 def buscarProductoId(request, idProducto):
     try:
         producto_encontrado = Producto.objects.get(pk = idProducto)
@@ -90,6 +97,7 @@ def buscarProductoId(request, idProducto):
     }
     return render(request, 'pages/editarProducto.html', contexto)
 
+@login_required
 def editarProducto(request, idProducto):
     producto_encontrado = None
     try:

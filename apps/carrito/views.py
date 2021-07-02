@@ -4,9 +4,11 @@ from apps.cuentas.models import Perfil
 from apps.carrito.models import Carrito
 from django.shortcuts import redirect, render
 from django.db.models import Sum
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
+@login_required
 def carrito(request):
     total = 0
     
@@ -21,6 +23,7 @@ def carrito(request):
     }
     return render(request, 'pages/carrito.html', context)
 
+@login_required
 def eliminarCarrito(request, idCarrito):
     producto = None
     try:

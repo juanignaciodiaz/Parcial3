@@ -5,6 +5,7 @@ from django.db.models import fields
 
 class FormularioRegistro(UserCreationForm):
     fecha_nacimiento = forms.DateField( widget= forms.TextInput( attrs={ 'type': 'date'}))
+    imagen = forms.FileField()
     def __init__(self, *args, **kwargs):
         super(FormularioRegistro, self).__init__(*args, **kwargs)
         for campovisible in self.visible_fields():
@@ -12,7 +13,7 @@ class FormularioRegistro(UserCreationForm):
             
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2')
+        fields = ('username', 'first_name', 'last_name', 'email', 'imagen', 'password1', 'password2')
 
 class IniciarSesion(AuthenticationForm):
     def __init__(self, *args, **kwargs):

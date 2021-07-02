@@ -9,7 +9,7 @@ from django.db.models.signals import post_save
 class Perfil(models.Model):
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
     # fecha_nacimiento = models.DateTimeField('Fecha de nacimiento:')
-    imagen = models.ImageField('Imagen perfil:', upload_to='perfil', blank=False, null=False, default="")
+    # imagen = models.ImageField('Imagen perfil:', upload_to='perfil', blank=False, null=False, default="")
 
     def __str__(self):
         return self.usuario.username

@@ -14,13 +14,15 @@ def prueba(request):
 def registro(request):
     formulario = None
     if request.method == 'POST':
-        formulario = FormularioRegistro(request.POST)
+        formulario = FormularioRegistro(request.POST, request.FILES)
         if formulario.is_valid():
             usuario = formulario.save()
             usuario.refresh_from_db()
+            # usuario.perfil.imagen = formulario.cleaned_data.get('imagen')
+            usuario.perfil.imagen = request.FILES['imagen'] 
             # usuario.perfil.fecha_nacimiento = formulario.cleaned_data.get('fecha_nacimiento')
             usuario.save()
-            return redirect('registrarse')
+            return redirect('principal')
     if request.method == 'GET':
         formulario = FormularioRegistro()
 
