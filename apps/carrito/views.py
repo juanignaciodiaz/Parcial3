@@ -12,7 +12,6 @@ def carrito(request):
     
     perfil = Perfil.objects.get(usuario = User.objects.get(id = request.user.id))
     productos = Carrito.objects.filter(usuario = perfil.id)
-
     for producto in productos:
         total = total + producto.producto.precio
     context = {

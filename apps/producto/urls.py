@@ -7,5 +7,6 @@ urlpatterns = [
     path('categoria/', views.crudCategoria, name='categoria'),
     path('producto/<int:idCategoria>', views.filtroCategoria, name='filtro_categoria'),
     path('crear/', views.agregarProducto, name='crudproducto'),
-    path('producto/agregado/<int:idProducto>', views.agregarCarrito, name='agregarCarrito')
+    path('producto/agregado/<int:idProducto>', views.agregarCarrito, name='agregarCarrito'),
+    path('crear/eliminar/<int:idProducto>', views.eliminarProducto, name='eliminarProducto'),
 ]

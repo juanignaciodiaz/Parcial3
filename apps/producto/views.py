@@ -67,3 +67,13 @@ def crudCategoria(request):
         'formulario': formulario
     }
     return render(request, 'pages/crudCategoria.html', context)
+
+def eliminarProducto(request, idProducto):
+    producto_encontrado = None
+
+    try:
+        producto_encontrado = Producto.objects.get(pk = idProducto)
+        producto_encontrado.delete()
+    except:
+        pass
+    return redirect('crudproducto')

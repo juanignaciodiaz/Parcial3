@@ -45,7 +45,7 @@
                     <h5 class="card-title">{{producto.nombre}}</h5>
                     <p class="card-text"> <span class="color-verde">$</span>{{producto.precio}}</p>
                     <button class="btn-warning">Editar</button>
-                    <button class="btn-danger">Eliminar</button>
+                    <a href="{% url 'eliminarProducto' producto.id %}"><button class="btn-danger">Eliminar</button></a>
                 </article>
             </section>
         </article>
