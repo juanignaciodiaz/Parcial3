@@ -12,6 +12,23 @@
       <ul id="comments-list" class="comments-list">
 
         <!-- Caja de comentarios -->
+        <form method="POST" class="public-comment" id="public-comment">
+          <div class="comment-avatar">
+            <img src="{{user.imagen.url}}">
+          </div>
+          <div class="public-box">
+            {%for campo in formulario%}
+              <div class="comment-content">
+                {{campo}}
+              </div>
+            {%endfor%}
+          </div>
+          <div class="comment-buttom">
+            <button type="submit" id="btnPublicar" class="public-button">Publicar</button>
+          </div>
+        </form>
+
+        <!--
         <form class="public-comment" id="public-comment">
           <div class="comment-avatar">
             <img src="assets/images/avatar/default_avatar.jpg">
@@ -26,6 +43,7 @@
             <button type="submit" id="btnPublicar" class="public-button">Publicar</button>
           </div>
         </form>
+        -->
 
         <li class="comments-list">
           <div class="comment-main-level">
