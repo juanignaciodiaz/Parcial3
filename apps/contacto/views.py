@@ -27,7 +27,10 @@ def send_email(correoelectronico):
     
 def contacto(request):
     if request.method == 'POST':
+        rut = request.POST.get('rut')
+        telefono = request.POST.get('telefono')
         correoelectronico = request.POST.get('correoelectronico')
+        cargo = request.POST.get('cargo')
 
         send_email(correoelectronico)
 

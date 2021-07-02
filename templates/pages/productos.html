@@ -1,55 +1,54 @@
+{% extends 'layout/layout.html' %}
+
+{% block contenido %}
 <section class="zona-productos">
   <section class="filtro">
     <article>
       <h3>Filtro:</h3>
       <ul class="lista-filtro-producto">
-        <li>Todo</li>
-        <li>Lácteos
-          <ul class="lista-desplegable">
-            <li>Leches</li>
-            <li>huevos</li>
-            <li class="productoBloqueado">Postres</li>
-          </ul>
-        </li>
-        <li><a>Despensa</a>
-          <ul class="lista-desplegable">
-            <li>Abarrotes</li>
-            <li class="productoBloqueado">Conservas</li>
-            <li>Salsas y condimentos</li>
-          </ul>
-        </li>
-        <li>Frutas y Verduras
-          <ul class="lista-desplegable">
-            <li>Frutas</li>
-            <li>Verduras</li>
-            <li>Frutos secos</li>
-          </ul>
-        </li>
-        <li>Bebidas</li>
+        <li class="lista-filtro"><a href="{% url 'producto' %}">Todo</a></li>
+        {% if categorias %}
+          {% for categoria in categorias %}
+          <li class="lista-filtro"><a href="{% url 'filtro_categoria' idCategoria=categoria.id %}">{{categoria.nombre}}</a></li>
+          {% endfor %}
+        {% else %}
+          <h4 class="text-muted texto-vacio">No hay categorias</h4>
+        {% endif %}
       </ul>
 
     </article>
     <article class="espacio-boton-crear-producto">
-      <p href= id="redirigir-crear-producto" class="crear-producto">Nuevo Producto</p>
+      <a class="filtro-crear" href="{% url 'categoria' %}">Nurva Categoria</a>
+      <a id="btn-crear-producto" class="crear-producto filtro-crear" href="{% url 'crudproducto' %}">Nuevo Producto</a>
     </article>
   </section>
 
   <div class="articulos">
     <h3>Todos</h3>
     <section>
-
-      <!-- <article>
+    {% if productos %}
+      {% for producto in productos %}
+      <article>
         <div class="card mb-1" style="width: 13rem;">
-          <img src="assets/images/Productos/lecheNido2.png" class="card-img-top" alt="...">
+          <img src="{{producto.imagen.url}}" class="card-img-top carta-imagen" alt="...">
           <div class="card-body">
-            <h5 class="card-title ">Leche nido +5</h5>
-            <p class="card-text"><span class="producto-antes">$9.990</span> <span class="producto-oferta">$7.490</span>
+            <h5 class="card-title ">{{producto.nombre}}</h5>
+            <p class="card-text">
+            {% if producto.estado %}
+            <span class="producto-antes">$9.990</span> <span class="producto-oferta">${{producto.precio}}</span>
+            
+            {% endif %}
+            ${{producto.precio}}
             </p>
             <a href="#" class="btn btn-primary">Comprar</a>
           </div>
         </div>
       </article>
-
+      {% endfor %}
+    {% else %}
+    <h2 class="text-center text-muted no-producto">No hay productos</h2>
+    {% endif %}
+      <!-- 
       <article>
         <div class="card mb-1" style="width: 13rem;">
           <img src="assets/images/Productos/lecheNido3.png" class="card-img-top" alt="...">
@@ -175,3 +174,4 @@
     </section>
   </div>
 </section>
+{% endblock contenido %}

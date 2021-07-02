@@ -142,10 +142,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 EMAIL_HOST = 'smtp.googlemail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'best.market24.7.1@gmail.com'
-EMAIL_HOST_PASSWORD = 'gta san andreas'
+EMAIL_HOST_USER = 'pabloalmendra12@gmail.com'
+EMAIL_HOST_PASSWORD = 'Pollo12pollo'
 EMAIL_USE_TLS = True
 # Configuración de login
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_URL = '/inicio-sesion/'
+# MEDIA
+MEDIA_URL = '/media/'
+MEDIA_ROOT = join(BASE_DIR, 'media')

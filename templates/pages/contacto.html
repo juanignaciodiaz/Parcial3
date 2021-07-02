@@ -39,36 +39,40 @@
     <h2> ¿Quieres trabajar con nosotros? </h2>
     <p> Llena el siguiente formulario y este a la espera para su confirmacion para trabajar en SuperMarket24/7
     <p>
+
+    {% if user.is_authenticated %}
+
+    
     <form>
         <!-- RUN -->
         <section class="container-fluid"></section>
         <article class="col-12">
             <div class="form-group">
                 <label for="rut">Ingrese su Rut</label>
-                <input type="text" id="rut" class="form-control" name="rut" />
+                <input type="text" id="rut" class="form-control" {{rut}} name="rut" />
             </div>
         </article>
         <!-- Telefono -->
         <article class="col-12">
             <div class="form-group">
                 <label for="telefono">Ingrese su telefono</label>
-                <input type="text" id="telefono" class="form-control" name="telefono" required minlength="1"
-                    maxlength="12" />
+                <input type="text" id="telefono" class="form-control" {{telefono}} name="telefono" required minlength="1"
+                maxlength="12" />
             </div>
         </article>
         <!-- Correo electronico -->
         <article class="col-12">
             <div class="form-group">
                 <label for="correoelectronico">Ingrese su correo electronico</label>
-                <input type="text" id="correoelectronico" class="form-control" name="correoelectronico" />
+                <input type="text" id="correoelectronico" class="form-control" {{correoelectronico}} name="correoelectronico"  value="{{user.email}}" disabled />
             </div>
         </article>
-
+        
         <!-- Cargo -->
         <article class="col-12">
             <div class="form-group">
                 <label for="cargo">Ingrese cargo</label>
-                <input type="text" id="cargo" class="form-control" name="cargo" />
+                <input type="text" id="cargo" class="form-control" {{cargo}} name="cargo" />
             </div>
         </article>
         <!-- Boton de enviar -->
@@ -78,5 +82,6 @@
             </div>
         </article>
     </form>
-    </div>
+    {% endif %}
+</div>
 {% endblock contenido %}
