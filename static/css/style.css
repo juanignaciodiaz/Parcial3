@@ -371,6 +371,7 @@ button,
 
 /* PAGINA CONTACTO */
 
+.pagina-blanco,
 .contenidoContacto {
     /* padding: 30px; */
     border: 1px solid rgb(199, 199, 199);
@@ -629,8 +630,9 @@ footer section article ul li :hover {
 .contenido_pagina_crud_producto form {
     width: 96%;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column wrap;
     justify-content: space-around;
+    align-items: center;
 }
 
 .contenido_pagina_crud_producto form section,
@@ -686,14 +688,16 @@ footer section article ul li :hover {
 }
 
 .contenido_pagina_crud_producto form .contenido-crear-producto-botones {
-    display: flex;
-    width: 30%;
-    justify-content: space-around;
+    
+    width: 80%;
+    /* justify-content: space-around; */
 }
 
 .contenido_pagina_crud_producto form .contenido-crear-producto-botones a,
 .contenido_pagina_crud_producto form .contenido-crear-producto-botones button {
     width: 40%;
+    display: block;
+    margin: auto;
 }
 
 .contenido-crear-producto-botones a {
@@ -843,6 +847,23 @@ input[type='checkbox']{
     transition: all 200ms;
 }
 
+.contenido-icono-carrito {
+    width: 45px;
+    height: 45px;
+    background-color: #bc0000;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border: 1px solid black;
+}
+
+.contenido-icono-carrito .icono-carrito {
+    position: absolute;
+    right: 15px;
+    top: 8px;
+    color: #ddd;
+}
 /* CATEGORIA */
 
 .formulario-categoria{
@@ -851,6 +872,65 @@ input[type='checkbox']{
 
 .formulario-categoria textarea{
     width: 90%;
+}
+
+/* PAGINA CARRITO */
+
+.imagen-producto {
+    width: 90px;
+    height: 123px;
+}
+
+.pagina-carrito .tabla-imagen {
+    width: 100px;
+}
+
+.pagina-carrito .thead-carrito {
+    background-color: #F57C00;
+}
+
+.carrito-total {
+    /* margin: 0 auto; */
+    text-align: center;
+}
+
+.carrito-contenido-total {
+    padding: 30px 0;
+    width: 50%;
+    margin: 10px auto;
+    border: 1px solid rgba(34, 34, 34, 0.753);
+    background-color: #28a745;
+    transition: all 400ms;
+}
+.carrito-contenido-total:hover {
+    /* box-shadow: 3px 4px 9px -5px #F57C00; */
+    box-shadow: 3px 4px 9px -4px;
+    transition: all 200ms;
+}
+.btn-comprar {
+    border: 1px solid rgba(34, 34, 34, 0.753);
+    font-weight: 500;
+    color: #212529;
+}
+
+.pagina-carrito table input{
+    width: 80px;
+}
+
+/* EDITAR PRODUCTO */
+
+.pagina-editar-producto {
+    padding: 10px;
+    border: 1px solid #28a745;
+    border-radius: 10px;
+}
+
+.pagina-editar-producto input{
+    width: 90%;
+}
+
+.pagina-editar-producto .crear-producto-stock {
+    width: 30%;
 }
 
 /* CONDICIONES */

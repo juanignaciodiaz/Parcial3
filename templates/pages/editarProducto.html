@@ -1,0 +1,28 @@
+{% extends 'layout/layout.html' %}
+
+
+{% block titulo %}Agregar{% endblock titulo %}
+{% block contenido %}
+
+<section class="contenido_pagina_crud_producto">
+    <form action="{% url 'modificar' producto.id  %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <article class="contenido-crearPagina pagina-editar-producto">
+            {% csrf_token %}
+                {% for campo in formulario %}
+                <label for="{{campo.id_for_label}}">{{campo.label}}</label>
+                {{campo}}
+                {% if campo.errors %}
+                <span class="text-muted">
+                {{campo.errors}}
+                </span>
+                {% endif %}
+                {% endfor %}
+            
+        </article>
+
+        <input type="submit" value="Guardar">
+    </form>
+</section>
+
+{% endblock contenido %}

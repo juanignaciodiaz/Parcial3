@@ -18,4 +18,3 @@ class Producto(models.Model):
     fecha_actualizacion = models.DateTimeField('Actualizado:', auto_now=True)
     imagen = models.ImageField('Imagen:', upload_to='productos', blank=False, null=False)
     categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null = True)
-    # imagen = models.CharField('Imagen', max_length=150, blank=False, null=False, default='https://media.tenor.com/images/965beb93fefb499a174d45bfcef23c30/tenor.gif')

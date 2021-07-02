@@ -1,0 +1,42 @@
+{% extends 'layout/layout.html' %}
+
+{% block contenido %}
+<section class="pagina-blanco pagina-carrito">
+<article class="table-responsive">
+    {% if productos %}
+        <table class="table border table-hover">
+            <thead class="thead-carrito">
+                <tr>
+                <th class="tabla-imagen" scope="col">Imagen</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio</th>
+                <th scope="col">cantidad</th>
+                <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for producto in productos %}
+                <tr>
+                <th><img class="imagen-producto" src="{{producto.producto.imagen.url}}" alt=""></th>
+                <td>{{producto.producto.nombre}}</td>
+                <td>{{producto.producto.precio}}</td>
+                <td><input type="number" name="" id="" min="1" max="{{producto.producto.stock}}" value="1"></td>
+                <td><a href="{% url 'eliminarCarrito' producto.id %}"><i class="fas fa-trash"></i></a></td>
+                </tr>
+            {% comment %} {{producto.usuario.usuario.id}} {% endcomment %}
+            {% endfor %}
+            </tbody>
+        </table>
+
+        
+    {% else %}
+    <h3 class="text-muted aling-item-center">{{producto.usuario}}</h3>
+
+    {% endif %}
+</article>
+<article class="carrito-contenido-total">
+    <h3 class="carrito-total">Total: {{total}}</h3>
+    <input class="d-block m-auto shadow-sm efecto-botones btn-comprar" type="button" value="comprar">
+</article>
+</section>
+{% endblock contenido %}
