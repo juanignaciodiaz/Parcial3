@@ -7,19 +7,9 @@ from django.db.models.signals import post_save
 # Create your models here.
 
 class Perfil(models.Model):
-<<<<<<< HEAD
-    usuario = models.OneToOneField(User, on_delete=models.CASCADE)
-    # fecha_nacimiento = models.DateTimeField('Fecha de nacimiento:')
-    numero = models.IntegerField('precio', blank=False, null=False, default=0)
-    
-    def idPerfil(self):
-        return self.id
-=======
-    
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
     # fecha_nacimiento = models.DateTimeField('Fecha de nacimiento:')
     imagen = models.ImageField('Imagen perfil:', upload_to='perfil', blank=False, null=False, default="")
->>>>>>> 9331225dc2d0da78585d19164eacc8040d6377e6
 
     def __str__(self):
         return self.usuario.username
