@@ -77,3 +77,28 @@ def eliminarProducto(request, idProducto):
     except:
         pass
     return redirect('crudproducto')
+
+def buscarProductoId(request, idProducto):
+    try:
+        producto_encontrado = Producto.objects.get(pk = idProducto)
+    except:
+        pass
+    formularioP = FormularioProducto(instance= producto_encontrado)
+    contexto = {
+        'formulario': formularioP,
+        'producto': producto_encontrado
+    }
+    return render(request, 'pages/editarProducto.html', contexto)
+
+def editarProducto(request, idProducto):
+    producto_encontrado = None
+    try:
+        producto_encontrado = Producto.objects.get(pk = idProducto)
+
+    except:
+        pass
+    formulario_producto = FormularioProducto(request.POST, request.FILES, instance = producto_encontrado)
+    
+    if formulario_producto.is_valid():
+        formulario_producto.save()
+        return redirect('crudproducto')
