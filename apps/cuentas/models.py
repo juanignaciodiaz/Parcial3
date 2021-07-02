@@ -10,6 +10,9 @@ class Perfil(models.Model):
     # fecha_nacimiento = models.DateTimeField('Fecha de nacimiento:')
     # imagen = models.ImageField
 
+    def idPerfil(self):
+        return self.id
+
     def __str__(self):
         return self.usuario.username
 @receiver(post_save, sender=User)

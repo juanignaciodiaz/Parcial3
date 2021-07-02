@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.producto',
     'apps.cuentas',
-    'apps.principal'
+    'apps.principal',
+    'apps.carrito',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -140,3 +142,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_URL = '/inicio-sesion/'
+# MEDIA
+MEDIA_URL = '/media/'
+MEDIA_ROOT = join(BASE_DIR, 'media')

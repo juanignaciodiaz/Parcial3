@@ -7,7 +7,7 @@
         <div class="formulario">
             <form class="col-sm-12 d-flex flex-wrap formulario-registro" method="POST" action="#">
                 {% csrf_token %}
-                <img src="assets/images/login.png" class="imagen-login" alt="Login">
+                <img src="static/img/login.png" class="imagen-login" alt="Login">
 
                 {% for campo in form %}
                 <label for="{{campo.id_for_label}}">{{campo.label}}</label>

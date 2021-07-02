@@ -5,18 +5,18 @@
 {% block contenido %}
 
 <section class="contenido_pagina_crud_producto">
-    <form>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
         <article class="contenido-crearPagina">
             <input type="number" name="id_producto" id="id_producto" value='2' disabled>
             {{formulario.nombre}}
-            {% comment %} <input type="text" name="titulo_producto" placeholder="Titulo del producto"> {% endcomment %}
-            
-            {% comment %} <input type="number" min="0" class="crear-producto-precio" name="precio_producto" placeholder="Precio del producto"> {% endcomment %}
             {{formulario.precio}}
+            {{formulario.estadooferta}}
             <input type="number" class="crear-producto-descuento" name="descuento_producto" id="descuento_producto" placeholder="Descuento" disabled>
+            {{formulario.stock}}
 
+            {{formulario.imagen}}
             {{formulario.categoria}}
-
             
         </article>
         <section>
@@ -24,11 +24,11 @@
                 <img src="https://media.tenor.com/images/965beb93fefb499a174d45bfcef23c30/tenor.gif" alt="">
             </div>
             {% comment %} <input type="text" name="imagen" placeholder="Ingrese la url de la imagen"> {% endcomment %}
-            {{formulario.imagen}}
         </section>
         <article class="contenido-crear-producto-botones">
             
             <button name="boton_guardar" type="submit" class="btn-agregar">Agrergar Producto</button>
+            {% comment %} <input type="submit" value="Guardar"> {% endcomment %}
             <button type="button" name="boton_editar" id="agregar_producto" class="btn-editar btn-editar">Editar</button>
         </article>
     </form>
@@ -40,12 +40,12 @@
         {% for producto in productos %}
         <article>
             <section class="card mb-1" style="width: 13rem">
-                <img src="{{producto.imagen}}" class="card-img-top">
+                <img src="{{producto.imagen.url}}" class="card-img-top carta-imagen">
                 <article class="card-body">
                     <h5 class="card-title">{{producto.nombre}}</h5>
                     <p class="card-text"> <span class="color-verde">$</span>{{producto.precio}}</p>
-                    <button class="btn-success">Editar</button>
-                    <button class="btn-danger">Eliminar</button>
+                    <button class="btn-warning">Editar</button>
+                    <a href="{% url 'eliminarProducto' producto.id %}"><button class="btn-danger">Eliminar</button></a>
                 </article>
             </section>
         </article>
