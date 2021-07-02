@@ -24,6 +24,7 @@ urlpatterns = [
     path('', include('apps.contacto.urls')),
     path('', include('apps.cuentas.urls')),
     path('', include('apps.principal.urls')),
+    path('', include('apps.comentarios.urls')),
     path('', include('apps.carrito.urls')),
 ] + static(
     settings.MEDIA_URL,

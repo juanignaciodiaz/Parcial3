@@ -1,14 +1,37 @@
+{% extends 'layout/layout.html' %}
+
+{% block contenido %}
 <section>
   <article>
     <div class="comments-container">
       <h2>Comentarios</h2>
-      <p class="condition-user">Por favor
-        <a href="#/inicio_sesion">Inicia Sesión</a> o
-        <a href="#/registrar">Regístrate</a> para comentar
-      </p>
       <ul id="comments-list" class="comments-list">
 
         <!-- Caja de comentarios -->
+        {%if user.is_authenticated%}
+        <form class="public-comment" id="public-comment" method="POST">
+          <div class="comment-avatar">
+            <img src="{{user.imagen.url}}">
+          </div>
+          <div class="public-box">
+            {%for campo in formulario%}
+            <div class="comment-content">
+              {{campo}}
+            </div>
+            {%endfor%}
+          </div>
+          <div class="comment-buttom">
+            <button type="submit" id="btnPublicar" class="public-button">Publicar</button>
+          </div>
+        </form>
+        {%else%}
+        <p class="condition-user">Por favor
+          <a href="#/inicio_sesion">Inicia Sesión</a> o
+          <a href="#/registrar">Regístrate</a> para comentar
+        </p>
+        {%endif%}
+
+        <!--
         <form class="public-comment" id="public-comment">
           <div class="comment-avatar">
             <img src="assets/images/avatar/default_avatar.jpg">
@@ -23,11 +46,12 @@
             <button type="submit" id="btnPublicar" class="public-button">Publicar</button>
           </div>
         </form>
+        -->
 
         <li class="comments-list">
           <div class="comment-main-level">
             <div class="comment-avatar">
-              <img src="assets/images/avatar/cj_avatar.jpg">
+              <img src="static/img/cj_avatar.jpg">
             </div>
             <div class="comment-box">
               <div class="comment-head">
@@ -45,7 +69,7 @@
           <ul class="comments-list reply-list">
             <li>
               <div class="comment-avatar">
-                <img src="assets/images/avatar/big_avatar.jpg">
+                <img src="static/img/big_avatar.jpg">
               </div>
               <div class="comment-box">
                 <div class="comment-head">
@@ -67,3 +91,4 @@
   </article>
 
 </section>
+{% endblock contenido %}
